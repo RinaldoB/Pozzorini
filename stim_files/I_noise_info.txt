@@ -1,0 +1,4 @@
+20 kHz sampling rate
+
+mean of 0.4V=400 mV corresponding to 400pA and a
+standard deviation of 0.1V=100 mV corresponding to 100pA.
