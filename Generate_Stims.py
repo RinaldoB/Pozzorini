@@ -2,21 +2,19 @@
 
 from __future__ import division
 
-
-import numpy as np
-import matplotlib.pyplot as plt 
+from pylab import *
 
 # In[ ]:
 
-def OU_current(T,I_0=0,sigma=1,tau=0.003, SamplingFreq=20000.):
+def OU_current(T,I_0=0,sigma=1,tau=0.003, DeltaT=1/20000.):
     '''
     T : gives the simulation time in seconds
     other parameters as in Pozzorini et al 2015
     '''
-    DeltaT = 1/SamplingFreq
+    #DeltaT = 1/SamplingFreq
     def DeltaI(I):
 
-        return (I_0-I)*DeltaT/tau + np.sqrt(2*sigma**2*DeltaT/tau)*np.randn()
+        return (I_0-I)*DeltaT/tau + np.sqrt(2*sigma**2*DeltaT/tau)*randn()
     
     I = np.zeros(int(T/DeltaT))
     I[0] = I_0 #set the initial value to the mean input
@@ -53,12 +51,6 @@ def save_stim():
     (I_mV).astype('f4').tofile('stim_files/I_noise_test_10s.tpl')
 
 
-def main():
-    
-    print 'Hello'
-
-if __name__ == "__main__":
-    main()
-
+TestPlot()
 
 
